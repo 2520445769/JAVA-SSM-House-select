@@ -1,0 +1,81 @@
+/* 基础样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 顶部导航样式 */
+.top {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 链接样式 */
+.top a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.top a:hover {
+    text-decoration: underline;
+}
+
+/* 欢迎信息样式 */
+.top p {
+    margin: 0;
+    color: #333;
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* 图片样式 */
+td img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* 查看详情链接样式 */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form{
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    width: 300px;
+    height: 40px;
+    background-color: #f8f8f8;
+}

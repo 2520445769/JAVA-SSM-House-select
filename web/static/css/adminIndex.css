@@ -1,0 +1,219 @@
+
+/* adminIndex.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.left a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.left a:hover {
+    background-color: #ddd;
+}
+
+.right {
+    flex-grow: 1;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.house, .cell, .user {
+    width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+td img {
+    width: 100px;
+    height: 100px;
+}
+
+td a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* 表单容器 */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 表单 */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 输入框 */
+form-input {
+    width: calc(100% - 20px);
+    height: 40px;
+    line-height: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* 提交按钮 */
+form-input[type="submit"] {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form-button:hover {
+    background-color: #0056b3;
+}
+
+
+.search {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search form {
+    gap: 10px; /* 为各个元素之间添加间距 */
+}
+
+.search label {
+    margin-right: 5px; /* 为标签添加右边距，使其与选择框之间有适当间距 */
+}
+
+.search select, .search input[type="submit"] {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.search input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* 弹出窗口的基本样式 */
+.update {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgba(42, 202, 224, 0.8);
+}
+
+
+/* 关闭按钮的样式 */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.error{
+    display: flex;
+    text-align: center;
+    margin:0 auto;
+    color: red;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.header p, .header a {
+    font-size: 16px;
+    line-height: 1.5;
+    display: inline-block;
+}
+
+.header p {
+    margin: 0;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header a:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+/*@media (max-width: 768px) {*/
+/*    .header {*/
+/*        padding: 10px;*/
+/*    }*/
+
+/*    .header p, .header a {*/
+/*        font-size: 14px;*/
+/*    }*/
+/*}*/
