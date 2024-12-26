@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <mappers>
+        <mapper resource="com/myx/mapper/UserMapper.xml"/>
+        <mapper resource="com/myx/mapper/HouseMapper.xml"/>
+        <mapper resource="com/myx/mapper/CellInfoMapper.xml"/>
+        <mapper resource="com/myx/mapper/AdminMapper.xml"/>
+    </mappers>
+</configuration>

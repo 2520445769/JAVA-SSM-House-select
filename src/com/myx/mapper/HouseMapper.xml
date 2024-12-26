@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myx.dao.HouseDao">
+    <select id="getAllHouseSource" resultType="com.myx.po.HouseSource" parameterType="com.myx.po.HouseSource">
+        select * from housesource where true
+        <if test="cellname!=null and cellname !=''">
+            and cellname=#{cellname}
+        </if>
+    </select>
+
+    <select id="getAllCellName" resultType="com.myx.po.HouseSource">
+        select cellname from housesource
+    </select>
+
+
+
+</mapper>

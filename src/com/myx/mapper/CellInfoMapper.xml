@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myx.dao.CellInfoDao">
+    <select id="getAllCellInfo" resultType="com.myx.po.CellInfo" parameterType="com.myx.po.CellInfo">
+        select * from cellinfo where true
+        <if test="cellname!=null and cellname !=''">
+            and cellname=#{cellname}
+        </if>
+        <if test="selection!=null and selection !=''">
+            and selection=#{selection}
+        </if>
+    </select>
+
+    <select id="getCellInfoById" resultType="com.myx.po.CellInfo" parameterType="int">
+        select * from cellinfo where id=#{id}
+    </select>
+    
+    <update id="updateCellInfo" parameterType="com.myx.po.CellInfo">
+        update cellinfo set username=#{username},selection=#{selection} where id=#{id}
+    </update>
+
+    <update id="UpdateUserInfo" parameterType="com.myx.po.UserInfo">
+        update userinfo set cellname=#{cellname},building=#{building},roomno=#{roomno} where username=#{username}
+    </update>
+
+</mapper>

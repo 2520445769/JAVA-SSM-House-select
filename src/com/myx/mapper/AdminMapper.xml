@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myx.dao.AdminInfoDao">
+
+    <select id="findAdminByName" resultType="com.myx.po.Admin">
+        select * from admininfo where a_name=#{a_name}
+    </select>
+
+    <select id="getAllHouse" resultType="com.myx.po.HouseSource">
+        select * from housesource
+    </select>
+
+    <select id="gatAllCell" resultType="com.myx.po.CellInfo" parameterType="com.myx.po.CellInfo">
+        select * from cellinfo where true
+        <if test="cellname!=null and cellname !=''">
+            and cellname=#{cellname}
+        </if>
+        <if test="selection!=null and selection !=''">
+            and selection=#{selection}
+        </if>
+    </select>
+
+    <select id="getAllUser" resultType="com.myx.po.User" parameterType="com.myx.po.User">
+        select * from user where true
+        <if test="username!=null and username !=''">
+            and username like concat('%',#{username},'%')
+        </if>
+    </select>
+
+    <select id="getAllUserInfo" resultType="com.myx.po.UserInfo" parameterType="com.myx.po.User">
+        select * from userinfo where true
+        <if test="username!=null and username !=''">
+            and username like concat('%',#{username},'%')
+        </if>
+    </select>
+
+
+
+    <select id="getHouseById" resultType="com.myx.po.HouseSource" parameterType="int">
+        select * from housesource where id=#{id}
+    </select>
+
+    <update id="updateHouse" parameterType="com.myx.po.HouseSource">
+        update housesource set
+        cellname=#{cellname},address=#{address}
+        <if test="picture!=null and picture !=''">
+            ,picture=#{picture}
+        </if>
+         where id=#{id}
+    </update>
+
+    <update id="updateCellInfo" parameterType="com.myx.po.CTools">
+        update cellinfo set
+        cellname=#{newCellName}
+        where cellname=#{oldCellName}
+    </update>
+
+    <delete id="deleteHouse" parameterType="int">
+        delete from housesource where id=#{id}
+    </delete>
+
+    <select id="getCellInfoByCellName" resultType="com.myx.po.CellInfo" parameterType="String">
+        select * from cellinfo where cellname=#{cellname}
+    </select>
+
+    <select id="getCellInfoById" resultType="com.myx.po.CellInfo" parameterType="int">
+        select * from cellinfo where id=#{id}
+    </select>
+    <select id="getAllUserNotInCell" resultType="com.myx.po.UserInfo">
+        select * from userinfo where cellname is null or cellname=''
+    </select>
+
+    <update id="updateCellById" parameterType="com.myx.po.CellInfo">
+        update cellinfo set
+        building=#{building},roomno=#{roomno},area=#{area},`type`=#{type},price=#{price},selection=#{selection},username=#{username}
+        <if test="picture!=null and picture !=''">
+            ,picture=#{picture}
+        </if>
+        where id=#{id}
+    </update>
+    <update id="updateUserInfoByUsername" parameterType="com.myx.po.CellInfo">
+        update userinfo set
+        building=#{building},
+        cellname=#{cellname},
+        roomno=#{roomno}
+        where username=#{username}
+    </update>
+
+    <update id="updateUserInfoByUsername1" parameterType="String">
+        update userinfo set
+        building='',
+        cellname='',
+        roomno=''
+        where username=#{username}
+    </update>
+
+    <delete id="deleteCellById" parameterType="int">
+        delete from cellinfo where id=#{id}
+    </delete>
+
+    <select id="gatAllCellNotUser" resultType="com.myx.po.CellInfo">
+        select * from cellinfo where selection='未选定'
+    </select>
+
+    <update id="updateUserInfo" parameterType="com.myx.po.UserInfo">
+        update userinfo set
+        building=#{building},
+        cellname=#{cellname},
+        roomno=#{roomno}
+        where username=#{username}
+    </update>
+
+    <select id="getCellInfoByUserName" resultType="com.myx.po.CellInfo" parameterType="String">
+        select * from cellinfo where username=#{username}
+    </select>
+
+    <update id="updateCellInfoSelect" parameterType="com.myx.po.UserInfo">
+        update cellinfo set
+            selection='已选定',
+            username=#{username}
+        where cellname=#{cellname} and building=#{building} and roomno=#{roomno}
+    </update>
+
+    <update id="updateCellInfoById" parameterType="int">
+        update cellinfo set
+        selection='未选定',
+        username=''
+        where id=#{cell_id}
+    </update>
+
+    <delete id="deleteUserInfoById" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+    <delete id="deleteUserById" parameterType="int">
+        delete from userinfo where id=#{id}
+    </delete>
+
+    <select id="getUserInfoById" resultType="com.myx.po.UserInfo" parameterType="int">
+        select * from userinfo where id=#{id}
+    </select>
+
+    <update id="updateCellByIds" parameterType="int">
+        update cellinfo set
+        selection='未选定',
+        username=''
+        where id=#{id_s}
+    </update>
+
+    <insert id="insertHouse" parameterType="com.myx.po.HouseSource">
+        insert into housesource(cellname,address,picture) values(#{cellname},#{address},#{picture})
+    </insert>
+
+    <select id="gatAllCellName" resultType="com.myx.po.CellInfo">
+        select distinct cellname from cellinfo
+    </select>
+    <insert id="insertCell" parameterType="com.myx.po.CellInfo">
+        insert into cellinfo(cellname,building,roomno,area,type,price,selection,username,picture)
+        values(#{cellname},#{building},#{roomno},#{area},#{type},#{price},'未选定','',#{picture})
+    </insert>
+
+    <insert id="insertUserInfo" parameterType="com.myx.po.CellInfo">
+        insert into userinfo(username,r_name,tel) values(#{username},#{r_name},#{tel})
+    </insert>
+
+    <insert id="insertUser" parameterType="com.myx.po.CellInfo">
+        insert into user(username,password) values(#{username},#{password})
+    </insert>
+
+</mapper>
